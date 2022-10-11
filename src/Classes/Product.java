@@ -12,9 +12,19 @@ public class Product {
     }
 
     public Product(String name, Category category, float price) {
-        this.name = name;
+        if(name != null && !name.isEmpty()) {
+            this.name = name;
+        } else {
+            throw new IllegalArgumentException("Name cannot be empty or null");
+        }
+
         this.category = category;
-        this.price = price;
+
+        if(price > 0.0f) {
+            this.price = Math.round(price * 100) / 100;
+        } else {
+            throw new IllegalArgumentException("Price must be a positive value");
+        }
     }
 
     public String getName() {
@@ -30,7 +40,11 @@ public class Product {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name != null && !name.isEmpty()) {
+            this.name = name;
+        } else {
+            throw new IllegalArgumentException("Name cannot be empty or null");
+        }
     }
 
     public void setCategory(Category category) {
@@ -38,7 +52,11 @@ public class Product {
     }
 
     public void setPrice(float price) {
-        this.price = price;
+        if(price > 0.0f) {
+            this.price = Math.round(price * 100) / 100;
+        } else {
+            throw new IllegalArgumentException("Price must be a positive value");
+        }
     }
 
     public String toString() {
