@@ -1,5 +1,6 @@
-package ak.po.Classes;
+package ak.po.Entities;
 
+import ak.po.Entities.Category;
 import ak.po.Enums.Currency;
 
 public class Product {

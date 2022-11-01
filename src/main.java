@@ -1,5 +1,5 @@
-import ak.po.Classes.Category;
-import ak.po.Classes.Product;
+import ak.po.Entities.Category;
+import ak.po.Entities.Product;
 
 public class main {
     public static void main(String[] args) {

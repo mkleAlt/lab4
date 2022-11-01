@@ -1,4 +1,4 @@
-package ak.po.Classes;
+package ak.po.Entities;
 
 public class Category {
     private String name;
