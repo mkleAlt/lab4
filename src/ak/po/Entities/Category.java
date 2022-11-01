@@ -12,6 +12,7 @@ public class Category {
             this.setName(name);
         } catch (IllegalArgumentException e) {
             this.name = null;
+            throw e;
         }
     }
 

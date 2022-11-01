@@ -32,6 +32,7 @@ public class Product {
             this.category = null;
             this.price = 0.0f;
             this.currency = null;
+            throw e;
         }
     }
 
