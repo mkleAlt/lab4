@@ -1,4 +1,4 @@
-package Classes;
+package ak.po.Entities;
 
 public class Category {
     private String name;
@@ -8,10 +8,11 @@ public class Category {
     }
 
     public Category(String name) {
-        if(name != null && !name.isEmpty()) {
-            this.name = name;
-        } else {
-            throw new IllegalArgumentException("Name cannot be empty or null");
+        try {
+            this.setName(name);
+        } catch (IllegalArgumentException e) {
+            this.name = null;
+            throw e;
         }
     }
 
@@ -27,6 +28,7 @@ public class Category {
         }
     }
 
+    @Override
     public String toString() {
         return "Category - " + this.name;
     }
