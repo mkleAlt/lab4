@@ -9,38 +9,15 @@ public class Product {
     private Currency currency;
 
     public Product() {
-        this.name = "DefaultProduct";
-        this.category = new Category();
-        this.price = 1.0f;
-        this.currency = Currency.PLN;
+        this("DefaultProduct", new Category(), 1.0f, Currency.PLN);
     }
 
     public Product(String name, float price) {
-        try {
-            this.setName(name);
-            this.setPrice(price);
-            this.category = new Category();
-            this.currency = Currency.PLN;
-        } catch (IllegalArgumentException e) {
-            this.name = null;
-            this.category = null;
-            this.price = 0.0f;
-            this.currency = null;
-        }
+        this(name, new Category(), price, Currency.PLN);
     }
 
     public Product(String name, Category category, float price) {
-        try {
-            this.setName(name);
-            this.setPrice(price);
-            this.setCategory(category);
-            this.currency = Currency.PLN;
-        } catch (IllegalArgumentException e) {
-            this.name = null;
-            this.category = null;
-            this.price = 0.0f;
-            this.currency = null;
-        }
+        this(name, category, price, Currency.PLN);
     }
 
     public Product(String name, Category category, float price, Currency currency) {
@@ -82,7 +59,11 @@ public class Product {
     }
 
     public void setCategory(Category category) {
-        this.category = category;
+        if(category != null) {
+            this.category = category;
+        } else {
+            throw new IllegalArgumentException("Category cannot be null");
+        }
     }
 
     public void setPrice(float price) {
