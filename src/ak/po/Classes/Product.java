@@ -1,4 +1,4 @@
-package Classes;
+package ak.po.Classes;
 
 public class Product {
     private String name;

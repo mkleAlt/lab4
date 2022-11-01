@@ -1,8 +1,5 @@
-import Classes.Category;
-import Classes.Product;
-
-import java.io.*;
-import java.util.Scanner;
+import ak.po.Classes.Category;
+import ak.po.Classes.Product;
 
 public class main {
     public static void main(String[] args) {
