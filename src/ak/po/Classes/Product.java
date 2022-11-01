@@ -11,19 +11,27 @@ public class Product {
         this.price = 1.0f;
     }
 
-    public Product(String name, Category category, float price) {
-        if(name != null && !name.isEmpty()) {
-            this.name = name;
-        } else {
-            throw new IllegalArgumentException("Name cannot be empty or null");
+    public Product(String name, float price) {
+        try {
+            this.setName(name);
+            this.setPrice(price);
+            this.category = new Category();
+        } catch (IllegalArgumentException e) {
+            this.name = null;
+            this.category = null;
+            this.price = 0.0f;
         }
+    }
 
-        this.category = category;
-
-        if(price > 0.0f) {
-            this.price = Math.round(price * 100) / 100;
-        } else {
-            throw new IllegalArgumentException("Price must be a positive value");
+    public Product(String name, Category category, float price) {
+        try {
+            this.setName(name);
+            this.setPrice(price);
+            this.setCategory(category);
+        } catch (IllegalArgumentException e) {
+            this.name = null;
+            this.category = null;
+            this.price = 0.0f;
         }
     }
 

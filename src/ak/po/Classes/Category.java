@@ -10,7 +10,7 @@ public class Category {
     public Category(String name) {
         try {
             this.setName(name);
-        } catch (IllegalArgumentException ex) {
+        } catch (IllegalArgumentException e) {
             this.name = null;
         }
     }
