@@ -25,10 +25,12 @@ public class Category {
     }
 
     public void setName(String name) {
-        if(name != null && !name.isEmpty()) {
-            this.name = name;
+        if(name == null) {
+            throw new IllegalArgumentException("Argument nie może mieć wartości NULL");
+        } else if(name.isEmpty()) {
+            throw new IllegalArgumentException("Argument nie może być pusty");
         } else {
-            throw new IllegalArgumentException("Name cannot be empty or null");
+            this.name = name;
         }
     }
 
