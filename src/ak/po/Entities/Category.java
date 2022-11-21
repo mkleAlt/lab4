@@ -3,17 +3,21 @@ package ak.po.Entities;
 public class Category {
     private String name;
 
-    public Category() {
-        this.name = "Default";
+    private Category() {
+        this.name = " ";
     }
 
-    public Category(String name) {
+    private Category(String name) {
         try {
             this.setName(name);
         } catch (IllegalArgumentException e) {
             this.name = null;
             throw e;
         }
+    }
+
+    public static Category from(String category) {
+        return new Category(category);
     }
 
     public String getName() {

@@ -10,11 +10,11 @@ public class Product {
     private Currency currency;
 
     public Product() {
-        this("DefaultProduct", new Category(), 1.0f, Currency.PLN);
+        this("DefaultProduct", Category.from(" "), 1.0f, Currency.PLN);
     }
 
     public Product(String name, float price) {
-        this(name, new Category(), price, Currency.PLN);
+        this(name, Category.from(" "), price, Currency.PLN);
     }
 
     public Product(String name, Category category, float price) {
