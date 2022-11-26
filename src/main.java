@@ -24,7 +24,7 @@ public class main {
         }
         System.out.println("Test wyjatku dla pustego stringa w konstruktorze:");
         try {
-            Category cat2 = Category.from(" ");
+            Category cat2 = Category.from("");
         } catch (IllegalArgumentException e) {
             System.out.println("Wyjatek: " + e.getMessage());
         }
