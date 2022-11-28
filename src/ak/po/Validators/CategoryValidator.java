@@ -10,16 +10,17 @@ public class CategoryValidator {
     }
 
     public static boolean validate(Category category) {
-        if(!nullValidator(category)) {
-            return false;
-        } else {
-            return true;
+        try {
+            nullValidator(category);
+        } catch (IllegalArgumentException e) {
+            throw e;
         }
+        return true;
     }
 
     public static boolean nullValidator(Category category) {
         if(category == null) {
-            throw new IllegalArgumentException("Argument nie może mieć wartości NULL");
+            throw new IllegalArgumentException("Argument nie moze miec wartocci NULL");
         } else {
             return true;
         }

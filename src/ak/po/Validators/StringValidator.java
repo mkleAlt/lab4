@@ -8,18 +8,18 @@ public class StringValidator {
     }
 
     public static boolean validate(String name) {
-        if(!nullValidator(name)) {
-            return false;
-        } else if(!lengthValidator(name)) {
-            return false;
-        } else {
-            return true;
+        try {
+            nullValidator(name);
+            lengthValidator(name);
+        } catch (IllegalArgumentException e) {
+            throw e;
         }
+        return true;
     }
 
     public static boolean lengthValidator(String name) {
         if(name.isEmpty()) {
-            throw new IllegalArgumentException("Argument nie moze być pusty");
+            throw new IllegalArgumentException("Argument nie moze byc pusty");
         } else {
             return true;
         }
@@ -27,7 +27,7 @@ public class StringValidator {
 
     public static boolean nullValidator(String name) {
         if(name == null) {
-            throw new IllegalArgumentException("Argument nie może miec wartosci NULL");
+            throw new IllegalArgumentException("Argument nie moze miec wartosci NULL");
         } else {
             return true;
         }

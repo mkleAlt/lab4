@@ -6,6 +6,8 @@ import ak.po.Validators.CurrencyValidator;
 import ak.po.Validators.FloatValidator;
 import ak.po.Validators.StringValidator;
 
+import static ak.po.Enums.Currency.*;
+
 public class Product {
     private final String name;
     private final Category category;
@@ -20,10 +22,10 @@ public class Product {
     }
 
     public static class Builder {
-        private String name = null;
-        private Category category = null;
+        private String name = " ";
+        private Category category = Category.from(" ");
         private float price = 0.0f;
-        private Currency currency = null;
+        private Currency currency = PLN;
 
         public Builder name(String name) {
             StringValidator.getInstance().validate(name);

@@ -10,16 +10,17 @@ public class CurrencyValidator {
     }
 
     public static boolean validate(Currency currency) {
-        if(!nullValidator(currency)) {
-            return false;
-        } else {
-            return true;
+        try {
+            nullValidator(currency);
+        } catch (IllegalArgumentException e) {
+            throw e;
         }
+        return true;
     }
 
     public static boolean nullValidator(Currency currency) {
         if(currency == null) {
-            throw new IllegalArgumentException("Argument nie może mieć wartości NULL");
+            throw new IllegalArgumentException("Argument nie moze miec wartosci NULL");
         } else {
             return true;
         }
