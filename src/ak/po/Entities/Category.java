@@ -21,7 +21,7 @@ public class Category {
 
     public void setName(String name) throws IllegalArgumentException {
         try {
-            CategoryValidator.validate(name);
+            CategoryValidator.getInstance().validate(name);
         } catch (IllegalArgumentException e) {
             this.name = null;
             throw e;
