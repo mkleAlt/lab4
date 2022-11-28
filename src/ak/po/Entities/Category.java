@@ -1,5 +1,7 @@
 package ak.po.Entities;
 
+import ak.po.Validators.StringValidator;
+
 public class Category {
     private String name;
 
@@ -21,7 +23,7 @@ public class Category {
 
     public void setName(String name) throws IllegalArgumentException {
         try {
-            CategoryValidator.getInstance().validate(name);
+            StringValidator.getInstance().validate(name);
         } catch (IllegalArgumentException e) {
             this.name = null;
             throw e;
@@ -33,39 +35,5 @@ public class Category {
     @Override
     public String toString() {
         return "Category - " + this.name;
-    }
-
-    public static class CategoryValidator {
-        private final static CategoryValidator instance = new CategoryValidator();
-
-        public static CategoryValidator getInstance() {
-            return instance;
-        }
-
-        public static boolean validate(String name) {
-            if(!nullValidator(name)) {
-                return false;
-            } else if(!lengthValidator(name)) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        public static boolean lengthValidator(String name) {
-            if(name.isEmpty()) {
-                throw new IllegalArgumentException("Argument nie może być pusty");
-            } else {
-                return true;
-            }
-        }
-
-        public static boolean nullValidator(String name) {
-            if(name == null) {
-                throw new IllegalArgumentException("Argument nie może mieć wartości NULL");
-            } else {
-                return true;
-            }
-        }
     }
 }
