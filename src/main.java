@@ -4,7 +4,6 @@ import ak.po.Enums.Currency;
 
 public class main {
     public static void main(String[] args) {
-        System.out.println("Zadanie 6 - testowanie entities:");
         System.out.println("\nTesty Category:");
         categoryTest();
     }
